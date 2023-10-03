@@ -25,9 +25,9 @@ const SignIn = () => {
     e.preventDefault();
     setBusy(true);
     const res = await signIn("credentials", {
-      redirect: false,
       email,
       password,
+      redirect: false,
     });
     setBusy(false);
     if (res?.error) {

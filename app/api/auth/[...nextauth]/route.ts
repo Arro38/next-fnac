@@ -26,17 +26,17 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Invalid login");
         }
         return {
-          id: user._id.toString(),
           name: user.name,
           email: user.email,
           role: user.role,
+          id: user._id.toString(),
         };
       },
     }),
   ],
   callbacks: {
     jwt(params: any) {
-      if (params?.user.role) {
+      if (params?.user?.role) {
         params.token.role = params.user.role;
         params.token.id = params.user.id;
       }
